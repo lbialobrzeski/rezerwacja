@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="fragments/header :: header"/>
+</head>
+<body>
+
+<div th:replace="fragments/menu :: menu"/>
+
+<div class="container">
+    <h1>Formularz dodawania rezerwacji</h1>
+    <form th:object="${rezerwacja}" method="post">
+        <p>Data od <input type="date" th:field="*{dataOd}"/></p>
+        <p>Data do <input type="date" th:field="*{dataDo}"/></p>
+        <datalist id="pracownik">
+            <option th:each="apracownik : ${pracownik}" th:value="${apracownik.imie} + ' ' + ${apracownik.nazwisko}">
+        </datalist>
+        <p><input type="submit" value="Dodaj" /> <input type="reset" value="Resetuj" /></p>
+    </form>
+</div>
+
+</body>
+</html>

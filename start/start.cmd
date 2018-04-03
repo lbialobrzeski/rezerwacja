@@ -1,0 +1,1 @@
+java -jar rezerwacja-0.0.1-SNAPSHOT.jar

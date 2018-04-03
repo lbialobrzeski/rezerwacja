@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <head th:replace="fragments/header :: header"/>
+</head>
+<body>
+
+<div th:replace="fragments/menu :: menu"/>
+
+<div class="container">
+    <div class="starter-template">
+        <h1>Lista samochodów</h1>
+        <div class="container">
+            <button type="button"><a href="/dodajPracownik">Dodaj</a></button>
+        </div>
+        <table class="table table-hover">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Imię</th>
+                <th scope="col">Nazwisko</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Akcja</th>
+            </tr>
+            <tr th:each="apracownik : ${pracownik}">
+                <td th:text="${apracownik.getId()}"></td>
+                <td th:text="${apracownik.getImie()}"></td>
+                <td th:text="${apracownik.getNazwisko()}"></td>
+                <td th:text="${apracownik.getMail()}"></td>
+                <td>
+                    <button type="button"><a th:href="'/edytujPracownik/' + ${apracownik.getId()}">Edytuj</a></button>
+                    <button type="button"><a th:href="'/usunPracownik/' + ${apracownik.getId()}">Usuń</a></button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -14,7 +14,6 @@ public class SamochodKontroler {
     @Autowired
     private SamochodRepozytorium samochodRepozytorium;
 
-//    kontroler wyświetlający główny widok
     @GetMapping("/samochod")
     public String wyswietl(Model model) {
         model.addAttribute("samochody", samochodRepozytorium.findAll());

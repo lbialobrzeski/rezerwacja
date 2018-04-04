@@ -10,10 +10,11 @@
 <div class="container">
     <h1>Formularz dodawania rezerwacji</h1>
     <form th:object="${rezerwacja}" method="post">
-        <p>Data od <input type="date" th:field="*{dataOd}"/></p>
-        <p>Data do <input type="date" th:field="*{dataDo}"/></p>
+        <p>Data od: <input type="date" th:field="*{dataOd}"/></p>
+        <p>Data do: <input type="date" th:field="*{dataDo}"/></p>
+        <p>Mail: <input th:list="pracownik" th:field="*{mail}"/></p>
         <datalist id="pracownik">
-            <option th:each="apracownik : ${pracownik}" th:value="${apracownik.imie} + ' ' + ${apracownik.nazwisko}">
+            <option th:each="apracownik : ${pracownik}" th:value="${apracownik.mail}">
         </datalist>
         <p><input type="submit" value="Dodaj" /> <input type="reset" value="Resetuj" /></p>
     </form>

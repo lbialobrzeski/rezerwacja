@@ -11,7 +11,7 @@
     <div class="starter-template">
         <h1>Lista samochodów</h1>
         <div class="container">
-        <button type="button"><a href="/dodajSamochod">Dodaj</a></button>
+        <a href="/dodajSamochod" class="btn btn-success" role="button" aria-pressed="true">Dodaj</a>
         </div>
         <table class="table table-hover">
             <tr>
@@ -27,9 +27,9 @@
                 <td th:text="${samochod.model}"></td>
                 <td th:text="${samochod.liczbaMiejsc}"></td>
                 <td>
-                    <button type="button"><a th:href="'/edytujSamochod/' + ${samochod.id}">Edytuj</a></button>
-                    <button type="button"><a th:href="'/usunSamochod/' + ${samochod.id}">Usuń</a></button>
-                    <button type="button"><a th:href="'/dodajRezerwacja/' + ${samochod.id}">Dodaj rezerwację</a></button>
+                    <a th:href="'/edytujSamochod/' + ${samochod.id}" class="btn btn-primary" role="button" aria-pressed="true">Edytuj</a>
+                    <a th:href="'/usunSamochod/' + ${samochod.id}" class="btn btn-warning" role="button" aria-pressed="true">Usuń</a>
+                    <a th:href="'/dodajRezerwacja/' + ${samochod.id}" class="btn btn-info" role="button" aria-pressed="true">Dodaj rezerwację</a>
                 </td>
             </tr>
         </table>

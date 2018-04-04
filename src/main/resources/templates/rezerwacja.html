@@ -11,21 +11,25 @@
     <div class="starter-template">
         <h1>Lista rezerwacji</h1>
         <div class="container">
-            <button type="button"><a href="/samochod">Dodaj</a></button>
+            <a href="/samochod" class="btn btn-success" role="button" aria-pressed="true">Dodaj</a>
         </div>
         <table class="table table-hover">
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Data od</th>
                 <th scope="col">Data do</th>
+                <th scope="col">Samochód</th>
+                <th scope="col">Email</th>
                 <th scope="col">Akcja</th>
             </tr>
             <tr th:each="arezerwacja : ${rezerwacja}">
                 <td th:text="${arezerwacja.id}"></td>
                 <td th:text="${arezerwacja.dataOd}"></td>
                 <td th:text="${arezerwacja.dataDo}"></td>
+                <td th:text="${arezerwacja.samochod.marka} + ' ' + ${arezerwacja.samochod.model}"></td>
+                <td th:text="${arezerwacja.mail}"></td>
                 <td>
-                    <button type="button"><a th:href="'/usunRezerwacja/' + ${arezerwacja.id}">Usuń</a></button>
+                    <a th:href="'/usunRezerwacja/' + ${arezerwacja.id}" class="btn btn-warning" role="button" aria-pressed="true">Usuń</a>
                 </td>
             </tr>
         </table>

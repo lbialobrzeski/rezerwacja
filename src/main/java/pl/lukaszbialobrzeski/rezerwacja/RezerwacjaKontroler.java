@@ -25,7 +25,6 @@ public class RezerwacjaKontroler {
     @Autowired
     private PracownikRepozytorium pracownikRepozytorium;
 
-    //    kontroler wyświetlający główny widok
     @GetMapping("/rezerwacja")
     public String wyswietl(Model model) {
           rezerwacjaRepozytorium.findAll();
@@ -44,24 +43,11 @@ public class RezerwacjaKontroler {
     @PostMapping("/dodajRezerwacja/{id}")
     public String zapiszSubmit(@PathVariable("id") Integer id, @ModelAttribute Rezerwacja rezerwacja){
         Samochod samochod = samochodRepozytorium.findOneById(id);
-        samochod.setRezerwacjas(rezerwacja);
+        rezerwacja.setSamochod(samochod);
         rezerwacjaRepozytorium.save(rezerwacja);
         return "redirect:/rezerwacja";
     }
 
-    @GetMapping("/edytujRezerwacja/{id}")
-    public String edytujForm(@PathVariable("id") Integer id, Model model) {
-        Rezerwacja rezerwacja = rezerwacjaRepozytorium.findOneById(id);
-        model.addAttribute("rezerwacja", rezerwacja);
-        return "edytujRezerwacja";
-    }
-
-    @PostMapping("/edytujRezerwacja/{id}")
-    public String edytujSubmit(@PathVariable("id") Integer id,  @ModelAttribute Rezerwacja rezerwacja){
-        rezerwacja.setId(id);
-        rezerwacjaRepozytorium.save(rezerwacja);
-        return "redirect:/rezerwacja";
-    }
     @GetMapping("/usunRezerwacja/{id}")
     public String usun(@PathVariable("id") Integer id){
         rezerwacjaRepozytorium.deleteById(id);

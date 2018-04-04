@@ -7,6 +7,4 @@ import javax.transaction.Transactional;
 
 @Transactional
 public interface RezerwacjaRepozytorium extends JpaRepository<Rezerwacja, Integer> {
-
-    Rezerwacja findOneById(Integer id);
 }

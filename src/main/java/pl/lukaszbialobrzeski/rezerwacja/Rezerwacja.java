@@ -23,8 +23,12 @@ public class Rezerwacja extends EncjaBazowa{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataDo;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "rezerwacjas")
-    private Set<Samochod> samochod;
+    @ManyToOne
+    @JoinColumn(name = "samochod_id")
+    private Samochod samochod;
+
+    @Column
+    private String mail;
 
     public Rezerwacja() {
     }
@@ -45,11 +49,19 @@ public class Rezerwacja extends EncjaBazowa{
         this.dataDo = dataDo;
     }
 
-    public Set<Samochod> getSamochod() {
+    public Samochod getSamochod() {
         return samochod;
     }
 
-    public void setSamochod(Set<Samochod> samochod) {
+    public void setSamochod(Samochod samochod) {
         this.samochod = samochod;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }

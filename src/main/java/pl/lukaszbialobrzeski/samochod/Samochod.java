@@ -4,6 +4,7 @@ import pl.lukaszbialobrzeski.bazowe.EncjaBazowa;
 import pl.lukaszbialobrzeski.rezerwacja.Rezerwacja;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "samochod")
@@ -18,9 +19,8 @@ public class Samochod extends EncjaBazowa{
     @Column(name = "liczba_miejsc")
     private int liczbaMiejsc;
 
-    @ManyToOne
-    @JoinColumn(name = "rezerwacja_id")
-    private Rezerwacja rezerwacjas;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "samochod")
+    private Set<Rezerwacja> rezerwacja;
 
     public Samochod() {}
 
@@ -44,11 +44,11 @@ public class Samochod extends EncjaBazowa{
         this.model = model;
     }
 
-    public Rezerwacja getRezerwacjas() {
-        return rezerwacjas;
+    public Set<Rezerwacja> getRezerwacja() {
+        return rezerwacja;
     }
 
-    public void setRezerwacjas(Rezerwacja rezerwacjas) {
-        this.rezerwacjas = rezerwacjas;
+    public void setRezerwacja(Set<Rezerwacja> rezerwacjas) {
+        this.rezerwacja = rezerwacjas;
     }
 }

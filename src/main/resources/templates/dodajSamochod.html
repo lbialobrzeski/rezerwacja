@@ -8,7 +8,7 @@
 <div th:replace="fragments/menu :: menu"/>
 
 <div class="container">
-    <h1>Formularz</h1>
+    <h1>Formularz dodawania samochodu</h1>
     <form action="#" th:action="@{/dodajSamochod}" th:object="${samochod}" method="post">
         <p>Marka: <input type="text" th:field="*{marka}" /></p>
         <p>Model: <input type="text" th:field="*{model}" /></p>

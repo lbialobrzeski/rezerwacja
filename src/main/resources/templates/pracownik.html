@@ -9,9 +9,9 @@
 
 <div class="container">
     <div class="starter-template">
-        <h1>Lista samochodów</h1>
+        <h1>Lista pracowników</h1>
         <div class="container">
-            <button type="button"><a href="/dodajPracownik">Dodaj</a></button>
+            <a href="/dodajPracownik" class="btn btn-success" role="button" aria-pressed="true">Dodaj</a>
         </div>
         <table class="table table-hover">
             <tr>
@@ -22,13 +22,13 @@
                 <th scope="col">Akcja</th>
             </tr>
             <tr th:each="apracownik : ${pracownik}">
-                <td th:text="${apracownik.getId()}"></td>
-                <td th:text="${apracownik.getImie()}"></td>
-                <td th:text="${apracownik.getNazwisko()}"></td>
-                <td th:text="${apracownik.getMail()}"></td>
+                <td th:text="${apracownik.id}"></td>
+                <td th:text="${apracownik.imie}"></td>
+                <td th:text="${apracownik.nazwisko}"></td>
+                <td th:text="${apracownik.mail}"></td>
                 <td>
-                    <button type="button"><a th:href="'/edytujPracownik/' + ${apracownik.getId()}">Edytuj</a></button>
-                    <button type="button"><a th:href="'/usunPracownik/' + ${apracownik.getId()}">Usuń</a></button>
+                    <a th:href="'/edytujPracownik/' + ${apracownik.id}" class="btn btn-primary" role="button" aria-pressed="true">Edytuj</a>
+                    <a th:href="'/usunPracownik/' + ${apracownik.id}" class="btn btn-warning" role="button" aria-pressed="true">Usuń</a>
                 </td>
             </tr>
         </table>
